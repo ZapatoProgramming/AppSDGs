@@ -3,6 +3,8 @@ package com.example.eco
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -17,16 +19,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             EcoTheme {
-                if (hijo) {
-                    CenteredCardExample(
-                        header = "Hijo",
-                        onCardClick = onClickCardExample
-                    )
-                } else {
+                Column {
                     CenteredCardExample(
                         header = "Padre",
                         onCardClick = onClickCardExample
                     )
+                    AnimatedVisibility (hijo) {
+                        CenteredCardExample(
+                            header = "Hijo",
+                            onCardClick = onClickCardExample
+                        )
+                    }
                 }
             }
         }

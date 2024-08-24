@@ -2,7 +2,7 @@ package com.example.eco.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -21,7 +21,8 @@ import androidx.compose.ui.unit.sp
 fun CenteredCardExample(header: String, onCardClick: () -> Unit = {}) {
     Box(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxWidth()
+            .padding(top = 20.dp),
         contentAlignment = Alignment.TopCenter,
     ) {
         Card(
@@ -30,9 +31,8 @@ fun CenteredCardExample(header: String, onCardClick: () -> Unit = {}) {
             ),
             onClick = onCardClick,
             modifier = Modifier
-                .width(400.dp)
+                .width(350.dp)
                 .wrapContentHeight()
-                .padding(top = 20.dp)
         ) {
             Column(
                 modifier = Modifier
