@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CenteredCardExample() {
+fun CenteredCardExample(header: String, onCardClick: () -> Unit = {}) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -28,6 +28,7 @@ fun CenteredCardExample() {
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.surfaceVariant,
             ),
+            onClick = onCardClick,
             modifier = Modifier
                 .width(400.dp)
                 .wrapContentHeight()
@@ -38,7 +39,7 @@ fun CenteredCardExample() {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = "Header",
+                    text = header,
                     fontSize = 24.sp,
                     fontFamily = FontFamily.SansSerif,
                 )
